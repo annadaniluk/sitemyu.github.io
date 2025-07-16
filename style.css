@@ -1,0 +1,253 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+  background-size: cover;
+  background-position: center;
+
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column; /* Змінено: щоб дозволити шапці займати верхню частину */
+  align-items: center;
+  justify-content: flex-start; /* Змінено: щоб контент починався зверху */
+}
+
+/* Стилі для шапки/меню */
+.main-header {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Напівпрозорий фон для шапки */
+  padding: 15px 0;
+  position: fixed; /* Закріплюємо шапку вгорі */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Щоб шапка була поверх іншого контенту */
+  backdrop-filter: blur(5px); /* Легке розмиття для шапки */
+}
+
+.main-nav {
+  display: flex;
+  justify-content: space-between; /* Розносить елементи по краях */
+  align-items: center;
+  max-width: 1200px; /* Максимальна ширина меню */
+  margin: 0 auto; /* Центруємо меню */
+  padding: 0 20px; /* Відступи по боках */
+}
+
+.nav-links {
+  list-style: none; /* Прибираємо маркери списку */
+  margin: 0;
+  padding: 0;
+  display: flex; /* Елементи списку в ряд */
+}
+
+.nav-links li {
+  margin-right: 25px; /* Відступи між елементами меню */
+}
+
+.nav-links .nav-item {
+  color: white;
+  text-decoration: none; /* Прибираємо підкреслення */
+  font-size: 16px;
+  transition: color 0.3s ease; /* Плавний перехід кольору */
+}
+
+.nav-links .nav-item:hover {
+  color: #3498db; /* Зміна кольору при наведенні */
+}
+
+/* Стилі для кнопки "Створити обліковий запис" у меню */
+.nav-button {
+  padding: 10px 18px; /* Трохи менший розмір для кнопки в меню */
+  border: none;
+  background: #e74c3c;
+  color: white;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.nav-button:hover {
+  background: #c0392b;
+}
+
+/* Змінено: login-container тепер має відступ зверху, щоб не перекриватися шапкою */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px; /* Відступ, щоб форма входу не ховалася за шапкою */
+  flex-grow: 1; /* Дозволяє контейнеру займати доступний простір */
+  justify-content: center; /* Центрує login-box по вертикалі в межах login-container */
+  width: 100%; /* Додаємо ширину для центровки */
+}
+
+.login-box {
+  background: rgba(255, 255, 255, 0.1); /* Змінив на 0.1, бо 0 було не видно */
+  border-radius: 15px;
+  padding: 30px 40px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  width: 300px;
+  display: none; /* Спочатку прихований */
+  position: relative; /* Для позиціонування кнопки закриття */
+}
+
+.login-box h2 {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group i {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: white;
+  pointer-events: none;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 10px 12px 40px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 14px;
+  outline: none;
+}
+
+.input-group input::placeholder {
+  color: #eee;
+}
+
+#login-button {
+  all: unset; /* Скидаємо всі стилі за замовчуванням */
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #3498db;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center; /* Центруємо текст кнопки */
+  display: block; /* Забезпечуємо, що кнопка займає всю ширину */
+}
+
+#login-button:hover {
+  background: #2980b9;
+}
+
+/* Стилі для кнопки закриття */
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover {
+  color: #e74c3c;
+}
+
+/* Стилі для контейнера галереї */
+.gallery-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 50px auto; /* Відступи зверху та знизу, центруємо */
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6); /* Напівпрозорий фон */
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px); 
+  color: white;
+  
+
+}
+
+.gallery-container h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.animal-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 стовпчики */
+  gap: 20px; /* Відстань між елементами галереї */
+}
+
+.gallery-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-50px);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 180px; /* Фіксована висота для зображень */
+  object-fit: cover; /* Обрізає зображення, щоб вони заповнювали простір */
+  display: block; /* Прибирає зайвий простір під зображеннями */
+}
+
+.gallery-item p {
+  padding: 10px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Адаптивність для галереї */
+@media (max-width: 992px) {
+  .animal-gallery {
+    grid-template-columns: repeat(3, 1fr); /* 3 стовпчики на середніх екранах */
+  }
+}
+
+@media (max-width: 768px) {
+  .animal-gallery {
+    grid-template-columns: repeat(2, 1fr); /* 2 стовпчики на планшетах */
+  }
+  .main-nav {
+    flex-direction: column;
+    padding: 0 10px;
+  }
+  .nav-links {
+    margin-bottom: 10px;
+  }
+  .nav-links li {
+    margin: 0 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .animal-gallery {
+    grid-template-columns: 1fr; /* 1 стовпчик на мобільних телефонах */
+  }
+  .login-box {
+    width: 80%;
+    padding: 20px 30px;
+  }
+  .gallery-container {
+    width: 95%;
+    padding: 15px;
+  }
+}
